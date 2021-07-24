@@ -1,0 +1,45 @@
+﻿
+@model CommentProject.Models.CommentObj
+@using CommentProject.Models
+@{
+    Layout = null;
+}
+
+
+<div class="CommentUI">
+    @{
+        foreach (Comment c in Model.Data)
+        {
+            <div data-box="">
+                <div>@c.CommentData</div>
+                <div data-remove onclick="comment_sdk.remove('CommentPanel','/comment/remove?id=@c.ID')"><div container><div tr><div td><i class="fas fa-times"></i></div></div></div></div>
+                <div data-user>
+                    <div>
+                        <span style="color: #337ab7; font-weight:bold; padding:7px;">  <i class="far fa-user"></i>  @c.Name</span><span style="font-style: italic;">@c.TimeStamp</span>
+                    </div>
+                </div>
+            </div>
+            
+        }
+
+        <div data-input="">
+            @using (Ajax.BeginForm("SaveComment", "Comment", new AjaxOptions { HttpMethod = "POST", OnSuccess = "FormSaved" }, new { @id = "AjaxformId" }))
+            {
+                @Html.AntiForgeryToken()
+                <div style="width:100%">
+                    @Html.TextAreaFor(o => o.NewComment, new { @style="width:100%" })
+                </div>
+                <div style="margin:10px; text-align:right">
+                    <button type="submit" class="btn btn-primary btn-lg" style="font-weight:bold">Add Comment</button>
+                </div>
+            }
+        </div>
+
+    }
+</div>
+
+<script>
+    function FormSaved(result) {
+        comment_sdk.load("CommentPanel");
+    }
+</script>

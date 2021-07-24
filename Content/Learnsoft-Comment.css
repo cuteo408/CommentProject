@@ -1,0 +1,84 @@
+﻿
+.CommentUI {
+    width: 100%;
+    max-width: 800px;
+    min-width: 100px;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+    .CommentUI > [data-box] {
+        position: relative;
+        border-bottom: 1px solid #ccc;
+        padding: 10px;
+        min-height: 100px;
+    }
+
+        .CommentUI > [data-box]:hover > [data-remove] {
+            display: block;
+        }
+
+    .CommentUI [data-remove] {
+        display: none;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 30px;
+        height: 100%;
+        cursor: pointer;
+    }
+
+        .CommentUI [data-remove] > div {
+            border: 3px solid white;
+            width: 100%;
+            background-color: #337ab7;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .CommentUI [data-remove] i {
+            font-size: 25px;
+            color: white;
+        }
+
+    .CommentUI > [data-input] {
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .CommentUI #NewComment {
+        width: 200px;
+        min-height: 100px;
+    }
+
+    .CommentUI [data-user] {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        height: 30px;
+        width: 100%;
+    }
+
+        .CommentUI [data-user] > div {
+            padding: 5px;
+        }
+
+    .CommentUI [container] {
+        display: table;
+    }
+
+        .CommentUI [container] > [tr] {
+            display: table-row;
+        }
+
+            .CommentUI [container] > [tr] > [td] {
+                display: table-cell;
+            }
+
+            .CommentUI [container], .CommentUI [container] > [tr], .CommentUI [container] > [tr] > [td] {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                vertical-align: middle;
+            }
