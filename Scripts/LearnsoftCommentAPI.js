@@ -33,7 +33,13 @@
         remove: function (DataID, RemoveURL) {
 
             comment_sdk.ws(RemoveURL, null, null, function () { comment_sdk.load(DataID); });
+        },
+        count: function (obj, target) {
+             var max = obj.getAttribute("maxlength");
+            obj.value.length;
+            $('#' + target).html(obj.value.length);
         }
+
 
     }
 })(0, 0);
